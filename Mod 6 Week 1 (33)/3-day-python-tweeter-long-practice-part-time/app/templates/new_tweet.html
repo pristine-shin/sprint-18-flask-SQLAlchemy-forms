@@ -15,8 +15,8 @@
         <!-- {{ form.hidden_tag() }} -->
         <!-- can also do this -->
         {{ form.csrf_token() }}
-        <p>{{ form.author(placeholder="Enter username") }}</p>
-        <p>{{ form.tweet(placeholder="Enter tweet") }}</p>
+        <p>{{ form.author.label }}: {{ form.author(placeholder="Enter username") }}</p>
+        <p>{{ form.tweet.label }}:{{ form.tweet(placeholder="Enter tweet") }}</p>
         <p>{{ form.submit() }}</p>
     </form>
 
