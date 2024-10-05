@@ -7,6 +7,14 @@
 </head>
 <body>
     <h1>Calendar working</h1>
+    <form action="/" method="POST">
+      <p>Name {{ form.name }}</p>
+      <p>Start {{ form.start_datetime }}</p>
+      <p>End {{ form.end_datetime }}</p>
+      <p>Description {{ form.description }}</p>
+      <p>Private? {{ form.private }}</p>
+      <p>{{ form.submit() }}</p>
+    </form>
     <table>
         <thead>
           <tr>
