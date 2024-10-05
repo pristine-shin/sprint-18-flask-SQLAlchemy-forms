@@ -23,6 +23,8 @@ def index():
 def new():
     form = TweetForm()
     today = date.today()
+    # zech's code:
+    # "date" : datetime.datetime.now().strftime('%m/%d/%y'),
     formatted_date = today.strftime("%m/%d/%y")
     if form.validate_on_submit():
         new_tweet = {
