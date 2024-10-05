@@ -35,7 +35,7 @@ def new():
 
         tweets.append(new_tweet)
 
-        return redirect('/tweets/feed')
+        return redirect('/tweets/feed', 302)
 
     if form.errors:
         return form.errors
