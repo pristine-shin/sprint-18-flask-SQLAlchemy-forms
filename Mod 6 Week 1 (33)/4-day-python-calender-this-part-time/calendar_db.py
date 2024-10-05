@@ -18,15 +18,24 @@ with sqlite3.connect(DB_FILE) as conn:
         '''
     )
 
+def create_appointment(name, start_datetime, end_datetime, description, private):
+    with sqlite3.connect(DB_FILE) as conn:
+        curs = conn.cursor()
+        curs.execute(
+            '''
+            INSERT INTO appointments(name, start_datetime, end_datetime, description, private)
+            VALUES(:name, :start_datetime, :end_datetime, :description, :private)
+            ''',
+            {
+                "name": name,
+                "start_datetime": start_datetime,
+                "end_datetime": end_datetime,
+                "description": description,
+                "private": private
+            }
+        )
 
-# with sqlite3.connect(DB_FILE) as conn:
-#     curs = conn.cursor()
-#     curs.execute(
-#         '''
-#         INSERT INTO appointments(name, start_datetime, end_datetime, description, private)
-#         VALUES('My appointment', '2024-10-04 14:00:00', '2024-10-04 15:00:00','An appointment for me', false);
-#         '''
-#     )
+create_appointment('My appointment', '2024-10-04 14:00:00', '2024-10-04 15:00:00','An appointment for me', False)
 
 
 # def get_all_appointments():
