@@ -3,16 +3,16 @@ from ..forms import SimpleForm
 from app.models import SimplePerson, db
 
 
-bp = Blueprint("simple", __name__, url_prefix="/simple-form")
+bp = Blueprint("simple", __name__, "")
 
 
-@bp.route('/',  methods=["GET"])
+@bp.route('/simple-form',  methods=["GET"])
 def form():
     form = SimpleForm()
     return render_template("simple_form.html", form=form)
 
 
-@bp.route('/', methods=["POST"])
+@bp.route('/simple-form', methods=["POST"])
 def index():
     form = SimpleForm()
     if form.validate_on_submit():
@@ -23,6 +23,6 @@ def index():
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect('/')
+        return redirect("/", 302)
     else:
         return "Bad Data"
