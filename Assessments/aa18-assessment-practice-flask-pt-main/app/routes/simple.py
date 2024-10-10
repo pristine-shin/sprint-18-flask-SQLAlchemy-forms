@@ -5,7 +5,14 @@ from app.models import SimplePerson, db
 
 bp = Blueprint("simple", __name__, url_prefix="/simple-form")
 
-@bp.route('/', methods=["GET", "POST"])
+
+@bp.route('/',  methods=["GET"])
+def form():
+    form = SimpleForm()
+    return render_template("simple_form.html", form=form)
+
+
+@bp.route('/', methods=["POST"])
 def index():
     form = SimpleForm()
     if form.validate_on_submit():
@@ -18,9 +25,4 @@ def index():
 
         return redirect('/')
     else:
-        print("Bad Data")
-    return render_template("simple_form.html", form=form)
-
-
-
-
+        return "Bad Data"
