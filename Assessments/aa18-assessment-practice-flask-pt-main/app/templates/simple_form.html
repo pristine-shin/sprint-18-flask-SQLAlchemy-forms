@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<form action="post" action="/simple-form">
+<form method="post" action="/simple-form">
     {{ form.csrf_token }}
     <div>{{ form.name.label }} {{ form.name }}</div>
     <div>{{ form.age.label }} {{ form.age }}</div>

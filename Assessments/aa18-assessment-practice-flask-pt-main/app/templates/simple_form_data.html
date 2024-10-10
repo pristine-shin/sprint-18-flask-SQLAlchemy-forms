@@ -1,0 +1,12 @@
+{% extends 'main_page.html' %}
+
+
+{% block content %}
+    {{% for person in people %}}
+        {{% if person.name[0] == 'M' %}}
+        <div>{{ person.name }}</div>
+        <div>{{ person.age }}</div>
+        <div>{{ person.bio }}</div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
